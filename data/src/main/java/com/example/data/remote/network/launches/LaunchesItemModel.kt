@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class LaunchesItemModel(
     @SerializedName("crew")
-    val crew: List<AnyModel?>? = listOf(),
+    val crew: List<String?>? = listOf(),
     @SerializedName("details")
     val details: String? = "",
     @SerializedName("flight_number")
