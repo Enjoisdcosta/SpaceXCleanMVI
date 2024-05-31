@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+
     //firebase auth
     alias(libs.plugins.google.gms.google.services)
 

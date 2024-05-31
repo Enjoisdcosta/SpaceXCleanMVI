@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "SpaceXCleanMVI"
 include(":app")
- 
+include(":data")
+include(":common")
+include(":domain")
