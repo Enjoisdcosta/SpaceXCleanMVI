@@ -1,6 +1,3 @@
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -12,18 +9,24 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import com.example.spacexcleanmvi.ui.compose.nav.signup.logic.SignUp
+import com.google.firebase.auth.FirebaseAuth
 
 
 @Composable
-fun SignUpScreen(navController: NavController) {
+fun SignUpScreen(navController: NavHostController) {
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    val context = LocalContext.current
+    val auth: FirebaseAuth = remember { FirebaseAuth.getInstance() }
 
     Box(
         contentAlignment = Alignment.Center,
@@ -74,7 +77,7 @@ fun SignUpScreen(navController: NavController) {
 
             androidx.compose.material3.OutlinedButton(
                 onClick = {
-                    // Still need to do Logic later
+                    SignUp(name,email,password,auth,context,navController)
                 },
                 modifier = Modifier
                     .width(360.dp)
@@ -88,10 +91,12 @@ fun SignUpScreen(navController: NavController) {
             ) {
                 Text(
                     text = "Sign Up",
-                    style = MaterialTheme.typography.labelMedium.copy(fontSize = 15.sp),
+                    style = MaterialTheme.typography.labelMedium.copy(fontSize = 20.sp),
                     color = Color.White
                 )
             }
+            Spacer(modifier = Modifier.height(20.dp))
+
             androidx.compose.material3.OutlinedButton(
                 onClick = {
                     navController.navigate("login")
@@ -108,7 +113,7 @@ fun SignUpScreen(navController: NavController) {
             ) {
                 Text(
                     text = "Already Have Login",
-                    style = MaterialTheme.typography.labelMedium.copy(fontSize = 15.sp),
+                    style = MaterialTheme.typography.labelMedium.copy(fontSize = 20.sp),
                     color = Color.White
                 )
             }

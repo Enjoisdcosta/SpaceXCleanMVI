@@ -106,7 +106,7 @@ fun Login(navController: NavHostController) {
             ) {
                 Text(
                     text = "Login",
-                    style = MaterialTheme.typography.labelMedium.copy(fontSize = 18.sp)
+                    style = MaterialTheme.typography.labelMedium.copy(fontSize = 20.sp)
                 )
 
             }
@@ -126,7 +126,7 @@ fun Login(navController: NavHostController) {
             ) {
                 Text(
                     stringResource(R.string.SignUP),
-                    style = MaterialTheme.typography.labelMedium.copy(fontSize = 18.sp),
+                    style = MaterialTheme.typography.labelMedium.copy(fontSize = 20.sp),
                 )
             }
         }
