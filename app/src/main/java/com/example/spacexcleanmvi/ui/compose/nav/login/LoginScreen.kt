@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,7 +33,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.example.spacexcleanmvi.R
 import com.google.firebase.auth.FirebaseAuth
-
+import kotlinx.coroutines.launch
 
 
 @Composable
@@ -42,6 +43,7 @@ fun Login(navController: NavHostController) {
     val context = LocalContext.current
     val auth: FirebaseAuth = remember { FirebaseAuth.getInstance() }
     var isLoading by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
 
     Box(
         contentAlignment = Alignment.Center,
@@ -87,7 +89,10 @@ fun Login(navController: NavHostController) {
 
             Button(
                 onClick = {
-                    loginFunction(email, password, auth, context, navController)
+                    scope.launch {
+
+                        loginFunction(email, password, auth, context, navController)
+                    }
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {

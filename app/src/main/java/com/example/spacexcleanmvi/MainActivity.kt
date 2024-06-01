@@ -15,7 +15,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.spacexcleanmvi.ui.compose.nav.login.Login
-import com.example.spacexcleanmvi.ui.compose.nav.login.LoginScreen
 import com.example.spacexcleanmvi.ui.compose.nav.login.blankScreen
 import com.example.spacexcleanmvi.ui.theme.SpaceXCleanMVITheme
 import dagger.hilt.android.AndroidEntryPoint
