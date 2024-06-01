@@ -1,4 +1,4 @@
-package com.example.spacexcleanmvi.ui.compose.nav.login
+package com.example.spacexcleanmvi.ui.compose.nav.login.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -38,9 +38,33 @@ fun blankScreen(){
         )
 
         Text(
-            stringResource(R.string.SignIn),
+            stringResource(R.string.SignUP),
             style = MaterialTheme.typography.labelMedium.copy(fontSize = 30.sp),
         )
+    }
+
+}
+
+@Composable
+fun blankScreen1(){
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Red)
+    )
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 30.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            stringResource(R.string.LogIn),
+            style = MaterialTheme.typography.labelMedium.copy(fontSize = 30.sp),
+            modifier = Modifier.padding(bottom = 50.dp)
+        )
+
     }
 
 }

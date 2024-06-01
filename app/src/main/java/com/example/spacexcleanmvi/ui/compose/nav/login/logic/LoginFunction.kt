@@ -1,17 +1,9 @@
-package com.example.spacexcleanmvi.ui.compose.nav.login
+package com.example.spacexcleanmvi.ui.compose.nav.login.logic
 
 import android.content.Context
 import android.widget.Toast
 import androidx.navigation.NavHostController
 import com.google.firebase.auth.FirebaseAuth
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.*
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MaterialTheme.typography
-import androidx.compose.material3.Shapes
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
-
 
 
 fun loginFunction(

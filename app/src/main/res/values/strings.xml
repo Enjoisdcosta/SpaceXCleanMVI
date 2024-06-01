@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">SpaceXCleanMVI</string>
     <string name="LogIn">LOGIN</string>
-    <string name="SignIn">SIGNIN</string>
+    <string name="SignUP">SignUP</string>
 </resources>

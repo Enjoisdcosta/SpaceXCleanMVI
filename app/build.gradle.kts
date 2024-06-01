@@ -90,4 +90,10 @@ dependencies {
     implementation ("androidx.navigation:navigation-fragment-ktx:2.5.0")
     implementation ("androidx.navigation:navigation-ui-ktx:2.5.0")
     implementation ("androidx.navigation:navigation-compose:2.5.0")
+
+
+    //material
+    implementation ("com.google.android.material:material:1.7.0")
+    //dark and light color theme
+    implementation ("androidx.compose.material:material:1.3.2")
 }
