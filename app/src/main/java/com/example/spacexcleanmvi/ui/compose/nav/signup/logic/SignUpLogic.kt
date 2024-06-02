@@ -1,6 +1,7 @@
 package com.example.spacexcleanmvi.ui.compose.nav.signup.logic
 
 import android.content.Context
+import android.widget.Toast
 import androidx.navigation.NavHostController
 import com.google.firebase.auth.FirebaseAuth
 
@@ -14,10 +15,17 @@ fun SignUp(
     navController: NavHostController
 ) {
     if (!!name.isNotBlank() && !!email.isNotBlank() && !!password.isNotBlank()) {
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+        auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {task->
                 if (task.isSuccessful) {
                     navController.navigate("login")
+                }
+                else {
+                    Toast.makeText(
+                        context,
+                        task.exception?.message ?: "SignUp failed",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
             }

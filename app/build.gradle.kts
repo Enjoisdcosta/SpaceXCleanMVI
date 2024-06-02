@@ -96,4 +96,6 @@ dependencies {
     implementation ("com.google.android.material:material:1.7.0")
     //dark and light color theme
     implementation ("androidx.compose.material:material:1.3.2")
+
+    
 }

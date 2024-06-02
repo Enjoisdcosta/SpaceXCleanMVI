@@ -1,4 +1,5 @@
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -9,13 +10,21 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import com.example.spacexcleanmvi.R
 import com.example.spacexcleanmvi.ui.compose.nav.signup.logic.SignUp
 import com.google.firebase.auth.FirebaseAuth
 
@@ -28,11 +37,20 @@ fun SignUpScreen(navController: NavHostController) {
     val context = LocalContext.current
     val auth: FirebaseAuth = remember { FirebaseAuth.getInstance() }
 
+
+    val backgroundImage: Painter = painterResource(id = R.drawable.spacex)
+    val lemonMilk = FontFamily(Font(R.font.lemon_milk_bold))
+
+    Image(
+        painter = backgroundImage,
+        contentDescription = stringResource(R.string.app_name),
+        contentScale = ContentScale.FillBounds,
+        modifier = Modifier.fillMaxSize()
+    )
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -41,14 +59,18 @@ fun SignUpScreen(navController: NavHostController) {
                 .padding(16.dp)
                 .fillMaxWidth()
         ) {
-            Text(text = "Sign Up", fontSize = 32.sp, color = Color.Black)
+            Text(
+                text = "Sign Up", fontSize = 32.sp, color = Color.White,
+                fontWeight = FontWeight.Bold,
+                style = androidx.compose.ui.text.TextStyle(fontFamily = lemonMilk)
+            )
 
             Spacer(modifier = Modifier.height(20.dp))
 
             OutlinedTextField(
                 value = name,
                 onValueChange = { name = it },
-                label = { Text(text = "Name") },
+                label = { Text(text = "Name", color = Color.White) },
                 modifier = Modifier.fillMaxWidth()
             )
 
@@ -57,7 +79,7 @@ fun SignUpScreen(navController: NavHostController) {
             OutlinedTextField(
                 value = email,
                 onValueChange = { email = it },
-                label = { Text(text = "Email") },
+                label = { Text(text = "Email", color = Color.White) },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 modifier = Modifier.fillMaxWidth()
             )
@@ -67,7 +89,7 @@ fun SignUpScreen(navController: NavHostController) {
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it },
-                label = { Text(text = "Password") },
+                label = { Text(text = "Password", color = Color.White) },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 visualTransformation = PasswordVisualTransformation(),
                 modifier = Modifier.fillMaxWidth()
@@ -77,7 +99,7 @@ fun SignUpScreen(navController: NavHostController) {
 
             androidx.compose.material3.OutlinedButton(
                 onClick = {
-                    SignUp(name,email,password,auth,context,navController)
+                    SignUp(name, email, password, auth, context, navController)
                 },
                 modifier = Modifier
                     .width(360.dp)
