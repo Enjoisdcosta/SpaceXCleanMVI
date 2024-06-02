@@ -12,6 +12,7 @@ fun loginFunction(
     auth: FirebaseAuth,
     context: Context,
     navController: NavHostController,
+    onLoginSuccess: () -> Unit
 ) {
    if (!!email.isNotBlank() && !!password.isNotBlank()) {
        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)

@@ -88,7 +88,6 @@ fun Nav(navController: NavController) {
 
 
 
-
         Scaffold(
             // top bar
             bottomBar = {
@@ -99,7 +98,7 @@ fun Nav(navController: NavController) {
         ) { innerPadding ->
             NavHost(
                 navController = navController,
-                startDestination = ROUTE_LOGIN,
+                startDestination = if (isUserLoggedIn) ROUTE_BLANK else ROUTE_LOGIN,
                 modifier = Modifier.padding(innerPadding)
             ) {
 
@@ -112,17 +111,19 @@ fun Nav(navController: NavController) {
 
         }
     }
+
 @Composable
-fun app(navController: NavHostController) {
-    val auth = remember { FirebaseAuth.getInstance() }
-    val isUserLoggedIn by remember { mutableStateOf(auth.currentUser != null) }
-    val navHostController = navController as NavHostController
+fun MyApp() {
+    val auth = FirebaseAuth.getInstance()
+    var isUserLoggedIn by remember { mutableStateOf(auth.currentUser != null) }
+
 
     if (isUserLoggedIn) {
-        navHostController.navigate(ROUTE_BLANK)
+        Nav(rememberNavController())
     } else {
-
+        Nav(rememberNavController())
     }
+}
 
 
 
@@ -135,7 +136,7 @@ fun app(navController: NavHostController) {
     }
 
 
-}
+
 
 
 

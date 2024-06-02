@@ -65,6 +65,7 @@ fun Login(navController: NavHostController) {
 
     val backgroundImage: Painter = painterResource(id = R.drawable.spacex)
     val lemonMilk = FontFamily(Font(R.font.lemon_milk_bold))
+    var isUserLoggedIn by remember { mutableStateOf(auth.currentUser != null) }
 
     Image(
         painter = backgroundImage,
@@ -125,7 +126,7 @@ fun Login(navController: NavHostController) {
             OutlinedButton(
                 onClick = {
                     scope.launch {
-                        loginFunction(email, password, auth, context, navController)
+                        loginFunction(email, password, auth, context, navController,onLoginSuccess = { isUserLoggedIn = true })
                     }
                 },
                 modifier = Modifier
