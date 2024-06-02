@@ -5,4 +5,7 @@
     <string name="SignOut">Sign Out</string>
     <string name="Yes">Yes</string>
     <string name="No">No</string>
+    <string name="Screen1">Screen1</string>
+    <string name="Screen2">Screen2</string>
+    <string name="Screen3">Screen3</string>
 </resources>

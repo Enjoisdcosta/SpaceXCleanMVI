@@ -32,7 +32,7 @@ fun blankScreen(){
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            stringResource(R.string.LogIn),
+            stringResource(R.string.Screen1),
             style = MaterialTheme.typography.labelMedium.copy(fontSize = 30.sp),
             modifier = Modifier.padding(bottom = 50.dp)
         )
@@ -60,7 +60,7 @@ fun blankScreen1(){
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            stringResource(R.string.LogIn),
+            stringResource(R.string.Screen2),
             style = MaterialTheme.typography.labelMedium.copy(fontSize = 30.sp),
             modifier = Modifier.padding(bottom = 50.dp)
         )
@@ -83,7 +83,7 @@ fun blankScreen2(){
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            stringResource(R.string.LogIn),
+            stringResource(R.string.Screen3),
             style = MaterialTheme.typography.labelMedium.copy(fontSize = 30.sp),
             modifier = Modifier.padding(bottom = 50.dp)
         )

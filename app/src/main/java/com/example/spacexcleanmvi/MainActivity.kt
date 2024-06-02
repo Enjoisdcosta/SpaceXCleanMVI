@@ -42,6 +42,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.common.nav.NavRoutes
 import com.example.common.nav.NavRoutes.Companion.ROUTE_BLANK
 import com.example.common.nav.NavRoutes.Companion.ROUTE_BLANK1
+import com.example.common.nav.NavRoutes.Companion.ROUTE_BLANK2
 import com.example.common.nav.NavRoutes.Companion.ROUTE_LOGIN
 import com.example.common.nav.NavRoutes.Companion.ROUTE_SIGN_UP
 import com.example.spacexcleanmvi.ui.compose.nav.bottombar.BottomAppBar
@@ -49,6 +50,7 @@ import com.example.spacexcleanmvi.ui.compose.nav.login.ui.CleanArchitectureTheme
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.Login
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.blankScreen
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.blankScreen1
+import com.example.spacexcleanmvi.ui.compose.nav.login.ui.blankScreen2
 import com.example.spacexcleanmvi.ui.theme.SpaceXCleanMVITheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -93,6 +95,7 @@ fun Nav(navController: NavController) {
             composable(ROUTE_LOGIN) { Login(navController) }
             composable(ROUTE_BLANK) { blankScreen() }
             composable(ROUTE_BLANK1) { blankScreen1() }
+            composable(ROUTE_BLANK2) { blankScreen2() }
             composable(ROUTE_SIGN_UP) { SignUpScreen(navController) }
         }
 

@@ -40,5 +40,6 @@ sealed class NavRoutes(
         const val ROUTE_SIGN_UP = "signup"
         const val ROUTE_BLANK = "blank"
         const val ROUTE_BLANK1 = "blank1"
+        const val ROUTE_BLANK2 = "blank2"
     }
 }

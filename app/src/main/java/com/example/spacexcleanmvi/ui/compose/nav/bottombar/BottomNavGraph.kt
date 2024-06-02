@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.AlertDialog
@@ -45,7 +47,7 @@ fun BottomAppBar(navController: NavHostController) {
 
     BottomNavigation(
         backgroundColor = Color.White,
-        contentColor = Color.Black
+        contentColor = Color.DarkGray
     ) {
         BottomNavigationItem(
             icon = {
@@ -65,13 +67,29 @@ fun BottomAppBar(navController: NavHostController) {
         BottomNavigationItem(
             icon = {
                 Icon(
-                    Icons.Filled.Search,
+                    Icons.Filled.AccountBox,
                     contentDescription = stringResource(R.string.app_name)
                 )
             },
             selected = navController.currentDestination?.route == NavRoutes.ROUTE_BLANK1,
             onClick = {
                 navController.navigate(NavRoutes.ROUTE_BLANK1) {
+                    popUpTo(navController.graph.startDestinationId)
+                    launchSingleTop = true
+                }
+            }
+        )
+        BottomNavigationItem(
+            icon = {
+                Icon(
+                    Icons.Filled.DateRange,
+                    contentDescription = stringResource(R.string.app_name)
+
+                )
+            },
+            selected = navController.currentDestination?.route == NavRoutes.ROUTE_BLANK2,
+            onClick = {
+                navController.navigate(NavRoutes.ROUTE_BLANK2) {
                     popUpTo(navController.graph.startDestinationId)
                     launchSingleTop = true
                 }
