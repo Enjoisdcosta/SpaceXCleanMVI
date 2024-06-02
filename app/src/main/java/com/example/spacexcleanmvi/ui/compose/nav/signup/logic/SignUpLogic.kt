@@ -3,6 +3,7 @@ package com.example.spacexcleanmvi.ui.compose.nav.signup.logic
 import android.content.Context
 import android.widget.Toast
 import androidx.navigation.NavHostController
+import com.example.common.nav.NavRoutes.Companion.ROUTE_LOGIN
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -18,7 +19,7 @@ fun SignUp(
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {task->
                 if (task.isSuccessful) {
-                    navController.navigate("login")
+                    navController.navigate(ROUTE_LOGIN)
                 }
                 else {
                     Toast.makeText(

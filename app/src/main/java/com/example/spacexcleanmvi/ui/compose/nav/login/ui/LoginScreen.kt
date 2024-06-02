@@ -19,6 +19,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -45,6 +46,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.spacexcleanmvi.R
 import com.example.spacexcleanmvi.ui.compose.nav.login.logic.loginFunction
+import com.google.android.material.internal.ClippableRoundedCornerLayout
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 import java.time.format.TextStyle
@@ -99,6 +101,7 @@ fun Login(navController: NavHostController) {
                 label = { Text(text = "Username", color = Color.White) },
                 modifier = Modifier.fillMaxWidth(),
                 isError = email.isEmpty() && email.isNotBlank(),
+
             )
 
             Spacer(modifier = Modifier.height(10.dp))
@@ -110,7 +113,7 @@ fun Login(navController: NavHostController) {
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 modifier = Modifier.fillMaxWidth(),
                 visualTransformation = PasswordVisualTransformation(),
-                isError = password.isEmpty() && password.isNotBlank()
+                isError = password.isEmpty() && password.isNotBlank(),
             )
 
             Spacer(modifier = Modifier.height(20.dp))
