@@ -10,8 +10,9 @@ import javax.inject.Inject
 class RepositoryImplementaion @Inject constructor(
     private val apiDetail: APIEndpoints
 ) :Repository {
-    override suspend fun getCapsules(): ArrayList<CapsulesItemModel> {
-        TODO("Not yet implemented")
+    override suspend fun getCapsules(): Flow<List<Capsules?>?> {
+        return apiDetail.getCapsules()
+
     }
 
 
