@@ -38,5 +38,7 @@ sealed class NavRoutes(
         const val ARG_MOVIE_ID = "movieId"
         const val ROUTE_LOGIN = "login"
         const val ROUTE_SIGN_UP = "signup"
+        const val ROUTE_BLANK = "blank"
+        const val ROUTE_BLANK1 = "blank1"
     }
 }

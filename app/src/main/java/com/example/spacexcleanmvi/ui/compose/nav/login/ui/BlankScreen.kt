@@ -68,3 +68,26 @@ fun blankScreen1(){
     }
 
 }
+@Composable
+fun blankScreen2(){
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Green)
+    )
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 30.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            stringResource(R.string.LogIn),
+            style = MaterialTheme.typography.labelMedium.copy(fontSize = 30.sp),
+            modifier = Modifier.padding(bottom = 50.dp)
+        )
+
+    }
+
+}

@@ -40,6 +40,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.common.nav.NavRoutes
+import com.example.common.nav.NavRoutes.Companion.ROUTE_BLANK
+import com.example.common.nav.NavRoutes.Companion.ROUTE_BLANK1
 import com.example.common.nav.NavRoutes.Companion.ROUTE_LOGIN
 import com.example.common.nav.NavRoutes.Companion.ROUTE_SIGN_UP
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.CleanArchitectureTheme
@@ -85,8 +87,8 @@ fun Nav(navController: NavController) {
         startDestination = ROUTE_LOGIN) {
 
         composable(ROUTE_LOGIN) { Login(navController) }
-        composable("blank") { blankScreen() }
-        composable("blank1") { blankScreen1() }
+        composable(ROUTE_BLANK) { blankScreen() }
+        composable(ROUTE_BLANK1) { blankScreen1() }
         composable(ROUTE_SIGN_UP) { SignUpScreen(navController) }
     }
 
