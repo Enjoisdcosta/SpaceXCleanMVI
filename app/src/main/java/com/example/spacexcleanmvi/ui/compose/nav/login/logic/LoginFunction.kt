@@ -11,7 +11,7 @@ fun loginFunction(
     password: String,
     auth: FirebaseAuth,
     context: Context,
-    navController: NavHostController
+    navController: NavHostController,
 ) {
    if (!!email.isNotBlank() && !!password.isNotBlank()) {
        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
@@ -19,6 +19,7 @@ fun loginFunction(
                val user = auth.currentUser
                if (task.isSuccessful && user != null) {
                    navController.navigate("blank")
+
 
 
                } else {

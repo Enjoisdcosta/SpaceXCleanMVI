@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 
 interface Repository {
-    suspend fun getCapsules(): Flow<List<Capsules?>?>
+    suspend fun getCapsules(): Flow<List<CapsulesItemModel?>?>
 
 }
