@@ -44,6 +44,7 @@ import com.example.common.nav.NavRoutes.Companion.ROUTE_BLANK
 import com.example.common.nav.NavRoutes.Companion.ROUTE_BLANK1
 import com.example.common.nav.NavRoutes.Companion.ROUTE_LOGIN
 import com.example.common.nav.NavRoutes.Companion.ROUTE_SIGN_UP
+import com.example.spacexcleanmvi.ui.compose.nav.bottombar.BottomAppBar
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.CleanArchitectureTheme
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.Login
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.blankScreen
@@ -63,12 +64,10 @@ class MainActivity : ComponentActivity() {
                 Nav(navController)
 
 
-
-
-                }
             }
         }
     }
+}
 
 
 @Composable
@@ -77,22 +76,29 @@ fun Nav(navController: NavController) {
     val bottomBarState = remember { mutableStateOf(true) }
     val navHostController = navController as NavHostController
 
+    Scaffold(
+        // top bar
+        bottomBar = {
+            if (bottomBarState.value) {
+                BottomAppBar(navController = navController)
+            }
+        }
+    ) { innerPadding ->
+        NavHost(
+            navController = navController,
+            startDestination = ROUTE_LOGIN,
+            modifier = Modifier.padding(innerPadding)
+        ) {
 
+            composable(ROUTE_LOGIN) { Login(navController) }
+            composable(ROUTE_BLANK) { blankScreen() }
+            composable(ROUTE_BLANK1) { blankScreen1() }
+            composable(ROUTE_SIGN_UP) { SignUpScreen(navController) }
+        }
 
-
-
-
-    NavHost(
-        navController = navController,
-        startDestination = ROUTE_LOGIN) {
-
-        composable(ROUTE_LOGIN) { Login(navController) }
-        composable(ROUTE_BLANK) { blankScreen() }
-        composable(ROUTE_BLANK1) { blankScreen1() }
-        composable(ROUTE_SIGN_UP) { SignUpScreen(navController) }
     }
-
 }
+
 @Composable
 fun App(navController: NavHostController) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -107,12 +113,3 @@ fun BottomAppBar(navController: NavHostController) {
 
 
 
-
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SpaceXCleanMVITheme {
-
-    }
-}
