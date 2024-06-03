@@ -3,6 +3,10 @@ package com.example.data.remote.di
 
 import com.example.data.remote.api.APIDetail
 import com.example.data.remote.api.APIEndpoints
+import com.example.data.remote.api.RetrofitInstance
+import com.example.data.remote.domain.FetchDataUseCase
+import com.example.data.remote.repository.CapsuleRepository
+import com.example.data.remote.repository.CapsuleRepositoryImplementaion
 import com.example.virginmoney.data.repository.Repository
 import com.example.virginmoney.data.repository.RepositoryImplementaion
 import com.google.gson.Gson
@@ -56,5 +60,21 @@ object MainModule {
     @Provides
     fun providesRepository(apiEndpoints: APIEndpoints): Repository {
         return RepositoryImplementaion(apiEndpoints)
+    }
+
+
+    @Provides
+    fun provideApiService(): APIEndpoints {
+        return RetrofitInstance.api
+    }
+
+    @Provides
+    fun provideDataRepository(apiService: APIEndpoints): CapsuleRepository {
+        return CapsuleRepositoryImplementaion(apiService)
+    }
+
+    @Provides
+    fun provideFetchDataUseCase(repository: CapsuleRepository): FetchDataUseCase {
+        return FetchDataUseCase(repository)
     }
 }
