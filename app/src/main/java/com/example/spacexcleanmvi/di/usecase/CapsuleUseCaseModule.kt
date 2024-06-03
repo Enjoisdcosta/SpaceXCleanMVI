@@ -1,8 +1,8 @@
 package com.example.spacexcleanmvi.di.usecase
 
 import com.example.domain.repository.CapsuleRepository
-import com.example.domain.usecase.GetCapsulesByIdUseCase
-import com.example.domain.usecase.GetCapsulesUseCase
+import com.example.domain.usecase.capsule.GetCapsulesByIdUseCase
+import com.example.domain.usecase.capsule.GetCapsulesUseCase
 import com.example.domain.usecase.UseCase
 import dagger.Module
 import dagger.Provides

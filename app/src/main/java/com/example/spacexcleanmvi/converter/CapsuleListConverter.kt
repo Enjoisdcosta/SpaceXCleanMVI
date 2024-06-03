@@ -2,7 +2,7 @@ package com.example.spacexcleanmvi.converter
 
 import android.content.Context
 import com.example.common.nav.state.CommonResultConverter
-import com.example.domain.usecase.GetCapsulesUseCase
+import com.example.domain.usecase.capsule.GetCapsulesUseCase
 import com.example.spacexcleanmvi.ui.model.Capsule
 import com.example.spacexcleanmvi.ui.model.CapsuleListModel
 import dagger.hilt.android.qualifiers.ApplicationContext
