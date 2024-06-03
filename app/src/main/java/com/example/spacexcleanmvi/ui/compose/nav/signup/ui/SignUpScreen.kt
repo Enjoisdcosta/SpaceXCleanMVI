@@ -71,6 +71,7 @@ fun SignUpScreen(navController: NavHostController) {
                 value = name,
                 onValueChange = { name = it },
                 label = { Text(text = "Name", color = Color.White) },
+                textStyle = androidx.compose.material3.LocalTextStyle.current.copy(color = Color.White),
                 modifier = Modifier.fillMaxWidth()
             )
 
@@ -80,6 +81,7 @@ fun SignUpScreen(navController: NavHostController) {
                 value = email,
                 onValueChange = { email = it },
                 label = { Text(text = "Email", color = Color.White) },
+                textStyle = androidx.compose.material3.LocalTextStyle.current.copy(color = Color.White),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 modifier = Modifier.fillMaxWidth()
             )
@@ -91,6 +93,7 @@ fun SignUpScreen(navController: NavHostController) {
                 onValueChange = { password = it },
                 label = { Text(text = "Password", color = Color.White) },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                textStyle = androidx.compose.material3.LocalTextStyle.current.copy(color = Color.White),
                 visualTransformation = PasswordVisualTransformation(),
                 modifier = Modifier.fillMaxWidth()
             )

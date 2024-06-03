@@ -16,6 +16,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.CheckboxDefaults.colors
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -102,6 +103,7 @@ fun Login(navController: NavHostController) {
                 value = email,
                 onValueChange = { email = it },
                 label = { Text(text = "Username", color = Color.White) },
+                textStyle = LocalTextStyle.current.copy(color = Color.White),
                 modifier = Modifier.fillMaxWidth(),
 
                 isError = email.isEmpty() && email.isNotBlank(),
@@ -115,6 +117,7 @@ fun Login(navController: NavHostController) {
                 value = password,
                 onValueChange = { password = it },
                 label = { Text(text = "Password", color = Color.White) },
+                textStyle = LocalTextStyle.current.copy(color = Color.White),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 modifier = Modifier.fillMaxWidth(),
                 visualTransformation = PasswordVisualTransformation(),
