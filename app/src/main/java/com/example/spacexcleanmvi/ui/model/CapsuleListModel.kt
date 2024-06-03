@@ -16,6 +16,7 @@ data class Capsule(
     val capsuleId: String? = "",
     val details: String? = "",
     val originalLaunch: String? = "",
-    val status: String? = ""
+    val status: String? = "",
+    val landings: Int? = 0
 
 )

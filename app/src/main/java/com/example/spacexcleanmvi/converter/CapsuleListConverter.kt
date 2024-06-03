@@ -23,7 +23,8 @@ class CapsuleListConverter @Inject constructor(
                     capsuleId = it?.capsuleId,
                     details = it?.details,
                     originalLaunch = it?.originalLaunch,
-                    status = it?.status
+                    status = it?.status,
+                    landings = it?.landings,
                 )
             } ?: listOf()
         )

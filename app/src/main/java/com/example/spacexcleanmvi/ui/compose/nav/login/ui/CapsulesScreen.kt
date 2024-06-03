@@ -97,10 +97,11 @@ fun CapsuleItem(capsule: Capsule, onItemClick: (Capsule) -> Unit) {
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            Text(text = "${capsule.status}")
-            Text(text = "${capsule.capsuleId}")
-            Text(text = "${capsule.details}")
-            Text(text = "${capsule.originalLaunch}")
+            Text(text = "Status: ${capsule.status}")
+            Text(text = "Id: ${capsule.capsuleId}")
+            Text(text = "Details: ${capsule.details}")
+            Text(text = "Original Launch: ${capsule.originalLaunch}")
+            Text(text = "Landing: ${capsule.landings}")
 
         }
     }

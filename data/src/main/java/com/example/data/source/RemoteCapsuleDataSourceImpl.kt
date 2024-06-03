@@ -39,6 +39,8 @@ class RemoteCapsuleDataSourceImpl @Inject constructor(
             details = model.details,
             originalLaunch = model.originalLaunch,
             status = model.status,
+            landings = model.landings,
+
         )
     }
 }
