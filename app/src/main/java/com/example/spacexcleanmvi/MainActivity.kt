@@ -5,14 +5,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -30,12 +33,14 @@ import com.example.spacexcleanmvi.ui.compose.nav.login.ui.Login
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.blankScreen
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.blankScreen1
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.blankScreen2
+import com.example.spacexcleanmvi.ui.viewmodel.MainViewModel
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     //https://api.spacexdata.com/v3/
+    private val viewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -58,6 +63,8 @@ fun Nav(navController: NavController) {
     val navHostController = navController as NavHostController
     val auth = remember { FirebaseAuth.getInstance() }
     var isUserLoggedIn by remember { mutableStateOf(auth.currentUser != null) }
+
+//    val state by viewModel.state.collectAsState()
 
     Scaffold(
         // top bar
@@ -93,18 +100,18 @@ fun Nav(navController: NavController) {
     }
 }
 
-@Composable
-fun MyApp() {
-    val auth = FirebaseAuth.getInstance()
-    var isUserLoggedIn by remember { mutableStateOf(auth.currentUser != null) }
-
-
-    if (isUserLoggedIn) {
-        Nav(rememberNavController())
-    } else {
-        Nav(rememberNavController())
-    }
-}
+//@Composable
+//fun MyApp() {
+//    val auth = FirebaseAuth.getInstance()
+//    var isUserLoggedIn by remember { mutableStateOf(auth.currentUser != null) }
+//
+//
+//    if (isUserLoggedIn) {
+//        Nav(rememberNavController())
+//    } else {
+//        Nav(rememberNavController())
+//    }
+//}
 
 
 @Composable
