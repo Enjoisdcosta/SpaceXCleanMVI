@@ -1,6 +1,6 @@
 package com.example.domain.entity
 
-data class Capsules(
+data class Capsule(
 
     val capsuleId: String? = "",
     val capsuleSerial: String? = "",

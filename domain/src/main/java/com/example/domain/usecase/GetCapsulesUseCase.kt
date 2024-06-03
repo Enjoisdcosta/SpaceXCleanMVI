@@ -1,6 +1,6 @@
 package com.example.domain.usecase
 
-import com.example.domain.entity.Capsules
+import com.example.domain.entity.Capsule
 import com.example.domain.repository.CapsuleRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -17,5 +17,5 @@ class GetCapsulesUseCase(
             }
 
     data object Request : UseCase.Request
-    data class Response(val movies: List<Capsules?>?) : UseCase.Response
+    data class Response(val capsules: List<Capsule?>?) : UseCase.Response
 }
