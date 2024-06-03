@@ -35,9 +35,7 @@ import androidx.navigation.compose.composable
 import com.example.common.nav.NavRoutes
 import com.example.spacexcleanmvi.R
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.Login
-import com.example.spacexcleanmvi.ui.compose.nav.login.ui.blankScreen
-import com.example.spacexcleanmvi.ui.compose.nav.login.ui.blankScreen1
-import com.example.spacexcleanmvi.ui.compose.nav.login.ui.blankScreen2
+
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 
