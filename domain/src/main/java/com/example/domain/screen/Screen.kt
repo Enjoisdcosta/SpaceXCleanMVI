@@ -1,4 +1,4 @@
-package com.example.domain.entity.screen
+package com.example.domain.screen
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

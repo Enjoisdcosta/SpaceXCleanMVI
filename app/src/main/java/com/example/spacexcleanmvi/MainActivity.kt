@@ -68,7 +68,7 @@ fun Nav(navController: NavController) {
 //    val state by viewModel.state.collectAsState()
 
     Scaffold(
-        // top bar
+
         bottomBar = {
             val navBackStackEntry by navController.currentBackStackEntryAsState()
             val currentRoute = navBackStackEntry?.destination?.route
