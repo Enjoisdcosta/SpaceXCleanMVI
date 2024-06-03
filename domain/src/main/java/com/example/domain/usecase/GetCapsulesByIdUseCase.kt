@@ -11,7 +11,7 @@ class GetCapsulesByIdUseCase(
 ) : UseCase<GetCapsulesByIdUseCase.Request, GetCapsulesByIdUseCase.Response>(configuration) {
 
     override fun process(request: Request): Flow<Response> =
-        repo.getCapsule(request.capsulesId)
+        repo.getCapsuleById(request.capsulesId)
             .map {
                 Response(it)
             }

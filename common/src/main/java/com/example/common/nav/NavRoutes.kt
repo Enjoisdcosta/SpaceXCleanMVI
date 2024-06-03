@@ -27,12 +27,36 @@ sealed class NavRoutes(
 //        }
 //    }
 
+    data class CapsuleInput (
+        val capsuleId: String?,
+    )
+
+    data object CapsuleDetails: NavRoutes(
+        route = "$ROUTE_CAPSULE/{$ARG_CAPSULE_ID}",
+        arguments = listOf(
+            navArgument(ARG_CAPSULE_ID) { type = NavType.StringType }
+        )
+    ) {
+
+        fun routeForCapsule(input: CapsuleInput) =
+            "$ROUTE_CAPSULE/{$ARG_CAPSULE_ID}"
+
+        fun fromEntry(entry: NavBackStackEntry): CapsuleInput {
+            return CapsuleInput(
+                entry.arguments?.getString(ARG_CAPSULE_ID) ?: ""
+            )
+        }
+
+    }
+
     data object Search : NavRoutes(ROUTE_SEARCH)
     data object Login : NavRoutes(ROUTE_LOGIN)
     data object SignUp : NavRoutes(ROUTE_SIGN_UP)
 
     companion object {
         const val ROUTE_MOVIES = "login"
+        const val ROUTE_CAPSULE = "capsule"
+        const val ARG_CAPSULE_ID = "capsuleId"
         const val ROUTE_MOVIE = "movies/%s"
         const val ROUTE_SEARCH = "search"
         const val ARG_MOVIE_ID = "movieId"

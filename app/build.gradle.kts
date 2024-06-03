@@ -86,6 +86,8 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-compiler:2.51.1")
 
+    implementation("androidx.compose.compiler:compiler:1.5.9")
+
     // Navigation
     implementation ("androidx.navigation:navigation-fragment-ktx:2.5.0")
     implementation ("androidx.navigation:navigation-ui-ktx:2.5.0")
@@ -93,9 +95,9 @@ dependencies {
 
 
     //material
-    implementation ("com.google.android.material:material:1.7.0")
+    implementation ("com.google.android.material:material:1.4.2")
     //dark and light color theme
-    implementation ("androidx.compose.material:material:1.3.2")
+    implementation ("androidx.compose.material:material:1.4.2")
 
     
 }

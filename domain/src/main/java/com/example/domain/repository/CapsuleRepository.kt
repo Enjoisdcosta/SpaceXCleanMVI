@@ -7,5 +7,5 @@ interface CapsuleRepository {
 
     fun getCapsules(): Flow<List<Capsule?>?>
 
-    fun getCapsule(capsuleId: String?): Flow<Capsule>
+    fun getCapsuleById(capsuleId: String?): Flow<Capsule>
 }
