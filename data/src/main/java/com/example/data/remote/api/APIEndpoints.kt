@@ -11,7 +11,7 @@ import retrofit2.http.GET
 interface APIEndpoints {
 
     @GET(APIDetail.CAPSULES_ENDPOINT)
-    suspend fun getCapsules(): Flow<List<CapsulesItemModel?>?>
+    suspend fun getCapsules(): Flow<List<CapsulesItemModel>>
 
 
 

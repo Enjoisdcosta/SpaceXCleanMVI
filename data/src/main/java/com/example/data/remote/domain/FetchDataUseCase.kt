@@ -5,7 +5,7 @@ import com.example.data.remote.repository.CapsuleRepository
 import kotlinx.coroutines.flow.Flow
 
 class FetchDataUseCase(private val repository: CapsuleRepository) {
-    suspend operator fun invoke(): Flow<List<CapsulesItemModel?>?> {
+    suspend operator fun invoke(): Flow<List<CapsulesItemModel>> {
         return repository.getCapsules()
     }
 }

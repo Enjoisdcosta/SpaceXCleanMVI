@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface CapsuleRepository {
 
-    suspend fun getCapsules(): Flow<List<CapsulesItemModel?>?>
+    suspend fun getCapsules(): Flow<List<CapsulesItemModel>>
 }

@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 class CapsuleRepositoryImplementaion(  private val apiService: APIEndpoints
 ): CapsuleRepository {
-    override suspend fun getCapsules(): Flow<List<CapsulesItemModel?>?> {
+    override suspend fun getCapsules(): Flow<List<CapsulesItemModel>> {
         return apiService.getCapsules()
     }
 }
