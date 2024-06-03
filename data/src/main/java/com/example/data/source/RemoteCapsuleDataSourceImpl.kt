@@ -35,10 +35,10 @@ class RemoteCapsuleDataSourceImpl @Inject constructor(
 
     private fun convert(model: CapsulesItemModel): Capsule {
         return Capsule(
-            capsuleId = model?.capsuleId,
-            details = model?.details,
-            originalLaunch = model?.originalLaunch,
-            status = model?.status,
+            capsuleId = model.capsuleId,
+            details = model.details,
+            originalLaunch = model.originalLaunch,
+            status = model.status,
         )
     }
 }

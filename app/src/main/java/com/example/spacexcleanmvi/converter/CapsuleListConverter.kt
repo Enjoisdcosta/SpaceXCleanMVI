@@ -10,22 +10,22 @@ import javax.inject.Inject
 
 class CapsuleListConverter @Inject constructor(
     @ApplicationContext private val context: Context
-) : CommonResultConverter<GetCapsulesUseCase.Response, CapsuleListModel>(){
-
+) : CommonResultConverter<GetCapsulesUseCase.Response, CapsuleListModel>() {
 
 
     override fun convertSuccess(
-        data: GetCapsulesUseCase.Response)
-    : CapsuleListModel {
+        data: GetCapsulesUseCase.Response
+    )
+            : CapsuleListModel {
         return CapsuleListModel(
-            items = data.capsules!!.map {
+            items = data.capsules?.map {
                 Capsule(
                     capsuleId = it?.capsuleId,
                     details = it?.details,
                     originalLaunch = it?.originalLaunch,
                     status = it?.status
                 )
-            }
+            } ?: listOf()
         )
     }
 

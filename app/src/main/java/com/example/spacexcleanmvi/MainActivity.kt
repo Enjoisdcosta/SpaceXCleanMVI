@@ -5,17 +5,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -28,27 +26,26 @@ import com.example.common.nav.NavRoutes.Companion.ROUTE_BLANK2
 import com.example.common.nav.NavRoutes.Companion.ROUTE_LOGIN
 import com.example.common.nav.NavRoutes.Companion.ROUTE_SIGN_UP
 import com.example.spacexcleanmvi.ui.compose.nav.bottombar.BottomAppBar
-import com.example.spacexcleanmvi.ui.compose.nav.login.ui.BlankScreen
+import com.example.spacexcleanmvi.ui.compose.nav.login.ui.CapsulesScreen
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.BlankScreen1
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.BlankScreen2
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.CleanArchitectureTheme
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.Login
+import com.example.spacexcleanmvi.ui.viewmodel.capsules.CapsuleListViewModel
 
-import com.example.spacexcleanmvi.ui.viewmodel.MainViewModel
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     //https://api.spacexdata.com/v3/
-    private val viewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             CleanArchitectureTheme {
                 val navController = rememberNavController()
-                Nav(navController)
+                Nav(hiltViewModel(),navController)
 
 
             }
@@ -58,7 +55,9 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable
-fun Nav(navController: NavController) {
+fun Nav(viewModel: CapsuleListViewModel,
+        navController: NavController) {
+
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val bottomBarState = remember { mutableStateOf(true) }
     val navHostController = navController as NavHostController
@@ -92,7 +91,7 @@ fun Nav(navController: NavController) {
         ) {
 
             composable(ROUTE_LOGIN) { Login(navController) }
-            composable(ROUTE_BLANK) { BlankScreen() }
+            composable(ROUTE_BLANK) { CapsulesScreen(hiltViewModel(), navController) }
             composable(ROUTE_BLANK1) { BlankScreen1() }
             composable(ROUTE_BLANK2) { BlankScreen2() }
             composable(ROUTE_SIGN_UP) { SignUpScreen(navController) }
