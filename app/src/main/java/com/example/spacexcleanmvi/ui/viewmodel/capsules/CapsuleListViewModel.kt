@@ -5,7 +5,7 @@ import com.example.common.nav.NavRoutes
 import com.example.common.nav.state.MviViewModel
 import com.example.common.nav.state.UiState
 import com.example.domain.usecase.capsule.GetCapsulesUseCase
-import com.example.spacexcleanmvi.converter.CapsuleListConverter
+import com.example.spacexcleanmvi.converter.capsule.CapsuleListConverter
 import com.example.spacexcleanmvi.ui.model.CapsuleListModel
 import com.example.spacexcleanmvi.ui.uiaction.capsule.CapsuleListAction
 import com.example.spacexcleanmvi.ui.uiaction.capsule.CapsuleListSingleEvent

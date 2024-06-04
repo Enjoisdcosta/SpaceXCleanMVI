@@ -103,8 +103,6 @@ fun CapsuleItem(capsule: Capsule, onItemClick: (Capsule) -> Unit) {
     val lemonMilk = FontFamily(Font(R.font.lemon_milk_bold))
 
 
-
-
     Card(
         modifier = Modifier
             .fillMaxWidth()

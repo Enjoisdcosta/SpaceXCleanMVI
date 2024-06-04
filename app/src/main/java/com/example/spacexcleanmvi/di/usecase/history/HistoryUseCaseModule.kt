@@ -22,8 +22,6 @@ class HistoryUseCaseModule {
         repository
     )
 
-
-
     @Provides
     fun GetHistoryByIdUseCase(
         configuration: UseCase.Configuration,

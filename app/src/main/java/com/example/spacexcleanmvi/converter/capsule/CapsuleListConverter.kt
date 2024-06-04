@@ -1,4 +1,4 @@
-package com.example.spacexcleanmvi.converter
+package com.example.spacexcleanmvi.converter.capsule
 
 import android.content.Context
 import com.example.common.nav.state.CommonResultConverter
