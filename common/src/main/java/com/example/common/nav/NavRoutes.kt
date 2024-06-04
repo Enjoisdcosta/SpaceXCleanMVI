@@ -30,16 +30,40 @@ sealed class NavRoutes(
     data class CapsuleInput (
         val capsuleId: String?,
     )
+    data class HistoryInput (
+        val id: Int?,
+        val title: String?,
+    )
 
     data object CapsuleDetails: NavRoutes(
         route = "$ROUTE_CAPSULE/{$ARG_CAPSULE_ID}",
         arguments = listOf(
             navArgument(ARG_CAPSULE_ID) { type = NavType.StringType }
         )
+
     ) {
 
         fun routeForCapsule(input: CapsuleInput) =
             "$ROUTE_CAPSULE/{$ARG_CAPSULE_ID}"
+
+        fun fromEntry(entry: NavBackStackEntry): CapsuleInput {
+            return CapsuleInput(
+                entry.arguments?.getString(ARG_CAPSULE_ID) ?: ""
+            )
+        }
+
+    }
+
+    data object HistoryDetails: NavRoutes(
+        route = "$ROUTE_HISTORY/{${ARG_HISTORY_ID}",
+        arguments = listOf(
+            navArgument(ARG_CAPSULE_ID) { type = NavType.IntType}
+        )
+
+    ) {
+
+        fun routeForHistory(input: HistoryInput) =
+            "$ROUTE_HISTORY/{$ARG_HISTORY_ID}"
 
         fun fromEntry(entry: NavBackStackEntry): CapsuleInput {
             return CapsuleInput(
@@ -55,7 +79,9 @@ sealed class NavRoutes(
     companion object {
         const val ROUTE_MOVIES = "login"
         const val ROUTE_CAPSULE = "capsule"
+        const val ROUTE_HISTORY = "history"
         const val ARG_CAPSULE_ID = "capsuleId"
+        const val ARG_HISTORY_ID = "id"
         const val ROUTE_SEARCH = "search"
         const val ROUTE_LOGIN = "login"
         const val ROUTE_SIGN_UP = "signup"
