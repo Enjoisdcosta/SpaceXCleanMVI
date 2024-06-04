@@ -2,7 +2,7 @@ package com.example.domain.entity
 
 sealed class UseCaseException(cause: Throwable) : Throwable(cause) {
 
-    class CapsuleException(cause: Throwable) : UseCaseException(cause)
+    class SpaceXException(cause: Throwable) : UseCaseException(cause)
 
     class UnknownException(cause: Throwable) : UseCaseException(cause)
 

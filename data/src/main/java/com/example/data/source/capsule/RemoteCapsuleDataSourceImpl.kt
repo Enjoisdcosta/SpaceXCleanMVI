@@ -21,7 +21,7 @@ class RemoteCapsuleDataSourceImpl @Inject constructor(
     }.map { capsuleList ->
         capsuleList.map { capsule -> convert(capsule) }
     }.catch {
-        throw UseCaseException.CapsuleException(it)
+        throw UseCaseException.SpaceXException(it)
     }
 
     override fun getCapsule(id: String?): Flow<Capsule> = flow{
@@ -29,7 +29,7 @@ class RemoteCapsuleDataSourceImpl @Inject constructor(
     }.map {
         convert(it)
     }.catch {
-        throw UseCaseException.CapsuleException(it)
+        throw UseCaseException.SpaceXException(it)
     }
 
     private fun convert(model: CapsulesItemModel): Capsule {
