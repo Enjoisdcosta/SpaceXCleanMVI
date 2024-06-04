@@ -20,17 +20,19 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.common.nav.NavRoutes
 import com.example.common.nav.NavRoutes.Companion.ROUTE_BLANK
 import com.example.common.nav.NavRoutes.Companion.ROUTE_BLANK1
 import com.example.common.nav.NavRoutes.Companion.ROUTE_BLANK2
 import com.example.common.nav.NavRoutes.Companion.ROUTE_LOGIN
 import com.example.common.nav.NavRoutes.Companion.ROUTE_SIGN_UP
 import com.example.spacexcleanmvi.ui.compose.nav.bottombar.BottomAppBar
-import com.example.spacexcleanmvi.ui.compose.nav.login.ui.CapsulesScreen
-import com.example.spacexcleanmvi.ui.compose.nav.login.ui.BlankScreen1
-import com.example.spacexcleanmvi.ui.compose.nav.login.ui.BlankScreen2
+import com.example.spacexcleanmvi.ui.compose.nav.screen.CapsulesScreen
+import com.example.spacexcleanmvi.ui.compose.nav.screen.BlankScreen1
+import com.example.spacexcleanmvi.ui.compose.nav.screen.BlankScreen2
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.CleanArchitectureTheme
 import com.example.spacexcleanmvi.ui.compose.nav.login.ui.Login
+import com.example.spacexcleanmvi.ui.compose.nav.screen.CapsuleDetailsScreen
 import com.example.spacexcleanmvi.ui.viewmodel.capsules.CapsuleListViewModel
 
 import com.google.firebase.auth.FirebaseAuth
@@ -97,6 +99,12 @@ fun Nav(viewModel: CapsuleListViewModel,
             composable(ROUTE_BLANK1) { BlankScreen1() }
             composable(ROUTE_BLANK2) { BlankScreen2() }
             composable(ROUTE_SIGN_UP) { SignUpScreen(navController) }
+            composable(
+                route = NavRoutes.CapsuleDetails.route,
+                arguments = NavRoutes.CapsuleDetails.arguments
+            ) {
+                CapsuleDetailsScreen(NavRoutes.CapsuleDetails.fromEntry(it),navController)
+            }
         }
 
     }

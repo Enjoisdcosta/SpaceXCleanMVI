@@ -1,4 +1,4 @@
-package com.example.spacexcleanmvi.ui.compose.nav.login.ui
+package com.example.spacexcleanmvi.ui.compose.nav.screen
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -9,10 +9,16 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,9 +28,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.common.nav.NavRoutes
+import com.example.common.nav.NavRoutes.Companion.ROUTE_BLANK
 import com.example.common.nav.state.CommonScreen
 import com.example.spacexcleanmvi.R
 import com.example.spacexcleanmvi.ui.model.Capsule
@@ -89,16 +100,30 @@ fun CapsuleList(
 
 @Composable
 fun CapsuleItem(capsule: Capsule, onItemClick: (Capsule) -> Unit) {
+    val lemonMilk = FontFamily(Font(R.font.lemon_milk_bold))
+
+
+
+
     Card(
         modifier = Modifier
-            .fillMaxWidth().clickable { onItemClick(capsule) },
+            .fillMaxWidth()
+            .background(color = Color.Black)
+            .clickable { onItemClick(capsule) },
         elevation = CardDefaults.cardElevation(4.dp)
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            Text(text = "Status: ${capsule.status}")
-            Text(text = "Id: ${capsule.capsuleId}")
+            Text(text = "Status: ${capsule.status}",
+                fontSize = 32.sp,
+                color = Color.Black,
+                fontWeight = FontWeight.Bold,
+                style = androidx.compose.ui.text.TextStyle(fontFamily = lemonMilk))
+            Text(
+                text = "Id: ${capsule.capsuleId}",
+
+            )
             Text(text = "Details: ${capsule.details}")
             Text(text = "Original Launch: ${capsule.originalLaunch}")
             Text(text = "Landing: ${capsule.landings}")
@@ -108,7 +133,7 @@ fun CapsuleItem(capsule: Capsule, onItemClick: (Capsule) -> Unit) {
 }
 
 @Composable
-fun BlankScreen1(){
+fun BlankScreen1() {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -130,8 +155,9 @@ fun BlankScreen1(){
     }
 
 }
+
 @Composable
-fun BlankScreen2(){
+fun BlankScreen2() {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -153,6 +179,7 @@ fun BlankScreen2(){
     }
 
 }
+
 //@Composable
 //fun CapsuleScreen(viewModel: MainViewModel){
 //    val state by viewModel.state.collectAsState()
@@ -176,3 +203,36 @@ fun BlankScreen2(){
 //    }
 //}
 //}
+@Composable
+fun CapsuleDetailsScreen(capsuleInput: NavRoutes.CapsuleInput, navController: NavController) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Button(onClick = { navController.navigate(ROUTE_BLANK) }) {
+            IconButton(
+
+                onClick = { navController.navigate(ROUTE_BLANK) },
+                modifier = Modifier
+                    .padding(8.dp)
+                    .size(10.dp),
+
+
+                ) {
+                Icon(
+                    imageVector = Icons.Filled.ArrowBack,
+                    contentDescription = "Back",
+
+                    )
+            }
+        }
+
+        Text(
+            text = "Details: ${capsuleInput.capsuleId}",
+            style = androidx.compose.material.MaterialTheme.typography.body1
+        )
+
+    }
+}

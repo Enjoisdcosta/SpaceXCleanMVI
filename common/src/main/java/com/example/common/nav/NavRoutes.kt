@@ -11,6 +11,7 @@ sealed class NavRoutes(
 ) {
     data object Movies : NavRoutes(ROUTE_MOVIES)
 
+
 //    data object Movie : NavRoutes(
 //        route = String.format(ROUTE_MOVIE, "{$ARG_MOVIE_ID}"),
 //        arguments = listOf(navArgument(ARG_MOVIE_ID) {
@@ -26,6 +27,7 @@ sealed class NavRoutes(
 //
 //        }
 //    }
+
 
     data class CapsuleInput (
         val capsuleId: String?,
@@ -51,6 +53,7 @@ sealed class NavRoutes(
                 entry.arguments?.getString(ARG_CAPSULE_ID) ?: ""
             )
         }
+
 
     }
 
