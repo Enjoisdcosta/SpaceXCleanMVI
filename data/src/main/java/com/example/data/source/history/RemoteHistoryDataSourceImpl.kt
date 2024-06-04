@@ -21,8 +21,8 @@ class RemoteHistoryDataSourceImpl @Inject constructor(
     override fun getHistory(): Flow<List<History?>?> = flow {
         val history = service.getHistory()
         emit(history)
-    }.map { capsuleList ->
-        capsuleList.map { history -> convert(history) }
+    }.map { historyList ->
+        historyList.map { history -> convert(history) }
     }.catch {
         throw UseCaseException.SpaceXException(it)
     }

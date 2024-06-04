@@ -1,4 +1,4 @@
-package com.example.spacexcleanmvi.ui.uiaction
+package com.example.spacexcleanmvi.ui.uiaction.capsule
 
 import com.example.common.nav.state.UiAction
 

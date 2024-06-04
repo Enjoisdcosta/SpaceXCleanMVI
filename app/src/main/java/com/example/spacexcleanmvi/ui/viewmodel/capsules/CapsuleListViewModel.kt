@@ -7,8 +7,8 @@ import com.example.common.nav.state.UiState
 import com.example.domain.usecase.capsule.GetCapsulesUseCase
 import com.example.spacexcleanmvi.converter.CapsuleListConverter
 import com.example.spacexcleanmvi.ui.model.CapsuleListModel
-import com.example.spacexcleanmvi.ui.uiaction.CapsuleListAction
-import com.example.spacexcleanmvi.ui.uiaction.CapsuleListSingleEvent
+import com.example.spacexcleanmvi.ui.uiaction.capsule.CapsuleListAction
+import com.example.spacexcleanmvi.ui.uiaction.capsule.CapsuleListSingleEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch

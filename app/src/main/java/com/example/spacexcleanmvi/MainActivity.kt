@@ -75,6 +75,8 @@ fun Nav(viewModel: CapsuleListViewModel,
                     ROUTE_BLANK,
                     ROUTE_BLANK1,
                     ROUTE_BLANK2,
+
+
                 )
             ) {
                 BottomAppBar(navController)

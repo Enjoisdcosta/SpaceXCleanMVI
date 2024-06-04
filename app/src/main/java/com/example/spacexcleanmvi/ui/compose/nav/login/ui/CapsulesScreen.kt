@@ -29,8 +29,8 @@ import com.example.common.nav.state.CommonScreen
 import com.example.spacexcleanmvi.R
 import com.example.spacexcleanmvi.ui.model.Capsule
 import com.example.spacexcleanmvi.ui.model.CapsuleListModel
-import com.example.spacexcleanmvi.ui.uiaction.CapsuleListAction
-import com.example.spacexcleanmvi.ui.uiaction.CapsuleListSingleEvent
+import com.example.spacexcleanmvi.ui.uiaction.capsule.CapsuleListAction
+import com.example.spacexcleanmvi.ui.uiaction.capsule.CapsuleListSingleEvent
 import com.example.spacexcleanmvi.ui.viewmodel.capsules.CapsuleListViewModel
 import kotlinx.coroutines.flow.collectLatest
 

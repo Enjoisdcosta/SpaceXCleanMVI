@@ -48,7 +48,6 @@ sealed class NavRoutes(
         }
 
     }
-
     data object Search : NavRoutes(ROUTE_SEARCH)
     data object Login : NavRoutes(ROUTE_LOGIN)
     data object SignUp : NavRoutes(ROUTE_SIGN_UP)
@@ -57,9 +56,7 @@ sealed class NavRoutes(
         const val ROUTE_MOVIES = "login"
         const val ROUTE_CAPSULE = "capsule"
         const val ARG_CAPSULE_ID = "capsuleId"
-        const val ROUTE_MOVIE = "movies/%s"
         const val ROUTE_SEARCH = "search"
-        const val ARG_MOVIE_ID = "movieId"
         const val ROUTE_LOGIN = "login"
         const val ROUTE_SIGN_UP = "signup"
         const val ROUTE_BLANK = "blank"
