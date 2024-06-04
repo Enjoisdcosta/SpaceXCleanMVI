@@ -116,7 +116,7 @@ fun CapsuleItem(capsule: Capsule, onItemClick: (Capsule) -> Unit) {
             modifier = Modifier.padding(16.dp)
         ) {
             Text(text = "Status: ${capsule.status}",
-                fontSize = 32.sp,
+                fontSize = 28.sp,
                 color = Color.Black,
                 fontWeight = FontWeight.Bold,
                 style = androidx.compose.ui.text.TextStyle(fontFamily = lemonMilk))
