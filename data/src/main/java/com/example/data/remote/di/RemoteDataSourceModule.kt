@@ -1,12 +1,11 @@
 package com.example.data.remote.di
 
-import com.example.data.remote.repository.RemoteCapsuleDataSource
-import com.example.data.source.RemoteCapsuleDataSourceImpl
+import com.example.data.remote.repository.capsule.RemoteCapsuleDataSource
+import com.example.data.source.capsule.RemoteCapsuleDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 
 
 @Module

@@ -1,6 +1,6 @@
-package com.example.data.remote.repository
+package com.example.data.remote.repository.capsule
 
-import com.example.domain.entity.Capsule
+import com.example.domain.entity.capsule.Capsule
 import com.example.domain.repository.CapsuleRepository
 import kotlinx.coroutines.flow.Flow
 

@@ -1,6 +1,6 @@
 package com.example.domain.repository
 
-import com.example.domain.entity.History
+import com.example.domain.entity.history.History
 import kotlinx.coroutines.flow.Flow
 
 interface HistoryRepository {

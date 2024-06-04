@@ -1,6 +1,6 @@
 package com.example.domain.usecase.history
 
-import com.example.domain.entity.History
+import com.example.domain.entity.history.History
 import com.example.domain.repository.HistoryRepository
 import com.example.domain.usecase.UseCase
 import kotlinx.coroutines.flow.Flow

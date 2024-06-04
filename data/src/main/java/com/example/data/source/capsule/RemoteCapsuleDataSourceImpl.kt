@@ -1,11 +1,10 @@
-package com.example.data.source
+package com.example.data.source.capsule
 
 import com.example.data.remote.api.APIEndpoints
 import com.example.data.remote.network.capsules.CapsulesItemModel
-import com.example.data.remote.repository.RemoteCapsuleDataSource
-import com.example.domain.entity.Capsule
+import com.example.data.remote.repository.capsule.RemoteCapsuleDataSource
+import com.example.domain.entity.capsule.Capsule
 import com.example.domain.entity.UseCaseException
-import com.example.domain.usecase.UseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow

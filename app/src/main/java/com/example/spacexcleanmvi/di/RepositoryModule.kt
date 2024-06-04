@@ -1,7 +1,7 @@
 package com.example.spacexcleanmvi.di
 
-import com.example.data.remote.repository.CapsuleRepositoryImpl
-import com.example.data.remote.repository.RemoteCapsuleDataSource
+import com.example.data.remote.repository.capsule.CapsuleRepositoryImpl
+import com.example.data.remote.repository.capsule.RemoteCapsuleDataSource
 import com.example.domain.repository.CapsuleRepository
 import dagger.Module
 import dagger.Provides
