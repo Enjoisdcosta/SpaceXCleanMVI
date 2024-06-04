@@ -1,4 +1,4 @@
-package com.example.spacexcleanmvi.di.usecase
+package com.example.spacexcleanmvi.di.usecase.capsule
 
 import com.example.domain.repository.CapsuleRepository
 import com.example.domain.usecase.capsule.GetCapsulesByIdUseCase
